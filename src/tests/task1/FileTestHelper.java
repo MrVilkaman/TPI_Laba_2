@@ -1,6 +1,6 @@
-package tests;
+package tests.task1;
 
-import donnu.zolotarev.tpi.laba2.IFileFinder;
+import donnu.zolotarev.tpi.laba2.task1.IFileFinder;
 
 import java.util.ArrayList;
 import java.util.Arrays;

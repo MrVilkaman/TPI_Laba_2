@@ -1,6 +1,6 @@
-package tests;
+package tests.task1;
 
-import donnu.zolotarev.tpi.laba2.SystemFileExplorer;
+import donnu.zolotarev.tpi.laba2.task1.SystemFileExplorer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,4 +1,6 @@
-package donnu.zolotarev.tpi.laba2;
+package donnu.zolotarev.tpi.laba2.task1;
+
+import donnu.zolotarev.tpi.laba2.FileUtils;
 
 import java.io.File;
 import java.util.Arrays;

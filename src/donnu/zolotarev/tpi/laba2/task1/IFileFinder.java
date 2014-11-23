@@ -1,4 +1,4 @@
-package donnu.zolotarev.tpi.laba2;
+package donnu.zolotarev.tpi.laba2.task1;
 
 import java.util.Collection;
 
