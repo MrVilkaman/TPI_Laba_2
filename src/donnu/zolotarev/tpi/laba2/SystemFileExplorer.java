@@ -22,13 +22,8 @@ public class SystemFileExplorer {
         fileFinder.deleteFileByName(files);
     }
 
-    private String createBackup(Collection<String> files) {
+    public String createBackup(Collection<String> files) {
         return "";
-    }
-
-
-    private void concatFiles(){
-
     }
 
     public Collection<String>  getFileWithExp(Collection<String> filesAll,String dir){
