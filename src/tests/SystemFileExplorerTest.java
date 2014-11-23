@@ -89,6 +89,5 @@ public class SystemFileExplorerTest extends Assert {
         assertTrue(endArr.size() == 2);
         assertTrue(endArr.get(0).equals("file.txt"));
         assertTrue(endArr.get(1).equals("backup.tmp"));
-
     }
 }

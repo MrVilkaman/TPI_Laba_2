@@ -22,13 +22,18 @@ public class FileTestHelper implements IFileFinder {
     }
 
     @Override
+    public void setDirPath(String dirPath) {
+
+    }
+
+    @Override
     public Collection<String> getFilesNames() {
         isUseGetFilesName = true;
         return strings;
     }
 
     @Override
-    public String getFileByName(String name) {
+    public String getFileBodyByName(String name) {
         useGetFileByName = true;
         if (name.equals("1")){
             return "qwer";
@@ -41,7 +46,7 @@ public class FileTestHelper implements IFileFinder {
     }
 
     @Override
-    public void deleteFileByName(Collection<String> strings) {
+    public void deleteFilesByName(Collection<String> strings) {
         isUseDeleteFileByName = true;
         this.strings.clear();
         this.strings.add("file.txt");

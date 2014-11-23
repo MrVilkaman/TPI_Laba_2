@@ -4,9 +4,10 @@ import java.util.Collection;
 
 public interface IFileFinder {
 
+    public void setDirPath(String dirPath);
     public Collection<String> getFilesNames();
-    public String getFileByName(String name);
-    public void deleteFileByName (Collection<String> strings);
+    public String getFileBodyByName(String name);
+    public void deleteFilesByName(Collection<String> strings);
     public void createFile (String fileName, String texts);
 
 }

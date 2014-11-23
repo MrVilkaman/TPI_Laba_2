@@ -16,18 +16,19 @@ public class SystemFileExplorer {
     }
 
     public void mergeTemporaryFiles( String dir ){
+        fileFinder.setDirPath(dir);
         Collection<String> files =  getFileWithExp(fileFinder.getFilesNames(),explorer);
-
         if (files != null){
             fileFinder.createFile(defaultName+explorer,createBackup(files));
-            fileFinder.deleteFileByName(files);
+            files.remove(defaultName+explorer);
+            fileFinder.deleteFilesByName(files);
         }
     }
 
     public String createBackup(Collection<String> files) {
         StringBuilder builder =  new StringBuilder();
         for (String name :files){
-            builder.append(fileFinder.getFileByName(name));
+            builder.append(fileFinder.getFileBodyByName(name));
         }
         return builder.toString();
     }
