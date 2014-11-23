@@ -28,9 +28,16 @@ public class FileTestHelper implements IFileFinder {
     }
 
     @Override
-    public String getFileByName() {
+    public String getFileByName(String name) {
         useGetFileByName = true;
-        return "";
+        if (name.equals("1")){
+            return "qwer";
+        } else if (name.equals("2")){
+            return "1234";
+        }else {
+            return "";
+        }
+
     }
 
     @Override

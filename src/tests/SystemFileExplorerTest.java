@@ -6,7 +6,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SystemFileExplorerTest extends Assert{
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+public class SystemFileExplorerTest extends Assert {
 
 
     private SystemFileExplorer explorer;
@@ -54,5 +59,36 @@ public class SystemFileExplorerTest extends Assert{
         assertTrue(fileHelper.isUseGetFileByName());
     }
 
+    @Test
+    public void stubTestCreateBackup() {
+        List<String> arrFileName = Arrays.asList("1", "2");
+        String resString =  explorer.createBackup(arrFileName);
+       // Arrays.asList("file.tmp", "file2.tmp", "file.txt")
+        Assert.assertTrue("qwer1234".equals(resString));
+    }
 
+    @Test
+    public void stubTestGetFileWithExp() {
+        Collection<String> startArr = fileHelper.getFilesNames();
+        ArrayList<String> resCol = new ArrayList<String>();
+
+        resCol.addAll(explorer.getFileWithExp(startArr, ".tmp"));
+
+        assertTrue(resCol.size() == 2);
+        assertTrue(resCol.get(0).equals("file.tmp"));
+        assertTrue(resCol.get(1).equals("file2.tmp"));
+    }
+
+    public void stubTestDeleteTecordedFiles() {
+        Collection<String> startArr = fileHelper.getFilesNames();
+        ArrayList<String> endArr = new ArrayList<String>();
+
+        explorer.getFileWithExp(startArr, ".tmp");
+
+        endArr.addAll(fileHelper.getFilesNames());
+        assertTrue(endArr.size() == 2);
+        assertTrue(endArr.get(0).equals("file.txt"));
+        assertTrue(endArr.get(1).equals("backup.tmp"));
+
+    }
 }

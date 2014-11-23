@@ -5,7 +5,7 @@ import java.util.Collection;
 public interface IFileFinder {
 
     public Collection<String> getFilesNames();
-    public String getFileByName();
+    public String getFileByName(String name);
     public void deleteFileByName (Collection<String> strings);
     public void createFile (String fileName, String texts);
 

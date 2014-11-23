@@ -1,6 +1,7 @@
 package donnu.zolotarev.tpi.laba2;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class SystemFileExplorer {
 
@@ -17,16 +18,27 @@ public class SystemFileExplorer {
     public void mergeTemporaryFiles( String dir ){
         Collection<String> files =  getFileWithExp(fileFinder.getFilesNames(),explorer);
 
-        fileFinder.createFile(defaultName+explorer,createBackup(files));
-
-        fileFinder.deleteFileByName(files);
+        if (files != null){
+            fileFinder.createFile(defaultName+explorer,createBackup(files));
+            fileFinder.deleteFileByName(files);
+        }
     }
 
     public String createBackup(Collection<String> files) {
-        return "";
+        StringBuilder builder =  new StringBuilder();
+        for (String name :files){
+            builder.append(fileFinder.getFileByName(name));
+        }
+        return builder.toString();
     }
 
-    public Collection<String>  getFileWithExp(Collection<String> filesAll,String dir){
-         return null;
+    public Collection<String>  getFileWithExp(Collection<String> filesAll,String exp){
+        LinkedList<String> strings =  new LinkedList<String>();
+        for (String s: filesAll){
+            if (s.contains(exp)){
+                strings.add(s);
+            }
+        }
+         return strings;
     }
 }
