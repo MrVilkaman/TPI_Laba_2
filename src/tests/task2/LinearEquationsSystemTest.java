@@ -37,7 +37,6 @@ public class LinearEquationsSystemTest extends Assert {
         });
         linearEquationsSystem.setCoefficients(new double[][]{});
         linearEquationsSystem.solve();
-
     }
 
 
@@ -54,13 +53,13 @@ public class LinearEquationsSystemTest extends Assert {
     }
 
     public void mockUseDeterminantSolve() {
-        MatrixTest matrixTest =  new MatrixTest();
-        linearEquationsSystem = new LinearEquationsSystem(matrixTest);
+        MatrixStub matrixStub =  new MatrixStub();
+        linearEquationsSystem = new LinearEquationsSystem(matrixStub);
         linearEquationsSystem.setCoefficients(new double[][]{});
 
-        assertFalse(matrixTest.isUseDeterminant());
+        assertFalse(matrixStub.isUseDeterminant());
         linearEquationsSystem.solve();
-        assertTrue(matrixTest.isUseDeterminant());
+        assertTrue(matrixStub.isUseDeterminant());
 
     }
 
