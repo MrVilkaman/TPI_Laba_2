@@ -15,7 +15,7 @@ public class LinearEquationsSystemTest extends Assert {
     public static void setUpClass(){
         matrix = new IMatrix() {
             @Override
-            public double determinant() {
+            public double determinant(double[][]  a) {
                 return 1;
             }
         };
@@ -29,28 +29,21 @@ public class LinearEquationsSystemTest extends Assert {
 
     @Test(expected = RuntimeException.class)
     public void testZeroDetSolve() {
-        linearEquationsSystem = new LinearEquationsSystem(new IMatrix() {
-            @Override
-            public double determinant() {
-                return 0;
-            }
-        });
+        linearEquationsSystem = new LinearEquationsSystem(matrix);
         linearEquationsSystem.setCoefficients(new double[][]{});
         linearEquationsSystem.solve();
     }
 
 
     public void testSolve3n() {
-        linearEquationsSystem = new LinearEquationsSystem(new IMatrix() {
-            @Override
-            public double determinant() {
-                return 0;
-            }
-        });
+        linearEquationsSystem = new LinearEquationsSystem(matrix);
         linearEquationsSystem.setCoefficients(new double[][]{});
         linearEquationsSystem.solve();
 
     }
+
+
+
 
     public void mockUseDeterminantSolve() {
         MatrixStub matrixStub =  new MatrixStub();
@@ -60,7 +53,6 @@ public class LinearEquationsSystemTest extends Assert {
         assertFalse(matrixStub.isUseDeterminant());
         linearEquationsSystem.solve();
         assertTrue(matrixStub.isUseDeterminant());
-
     }
 
 

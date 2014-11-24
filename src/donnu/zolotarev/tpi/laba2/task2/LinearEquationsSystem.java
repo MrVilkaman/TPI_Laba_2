@@ -11,11 +11,16 @@ public class LinearEquationsSystem {
     }
 
     public  double[] solve(){
-        double det = iMatrix.determinant();
+        double det = iMatrix.determinant(coeffs);
         if (det == 0){
             throw new RuntimeException();
         }
-        return null;
+
+
+        double[] res = new double[coeffs[0].length];
+
+
+        return res;
     }
 
     public void setCoefficients(double[][] coeffs){

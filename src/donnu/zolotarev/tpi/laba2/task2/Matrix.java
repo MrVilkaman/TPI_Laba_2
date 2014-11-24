@@ -1,11 +1,10 @@
 package donnu.zolotarev.tpi.laba2.task2;
 
 public class Matrix implements IMatrix {
-    private final double[][] matrix;
     private final static double Eps = 10E-6;
 
     @Override
-    public double determinant() {
+    public double determinant(double[][] matrix) {
         if (matrix.length == 0 ||matrix.length != matrix[0].length){
             throw new IllegalArgumentException();
         }
@@ -14,7 +13,7 @@ public class Matrix implements IMatrix {
             case 1:
                 return matrix[0][0];
             case 2:
-                return getDeterminantFormLength2();
+                return getDeterminantFormLength2(matrix);
             case 3:
                 return getDeterminantFormLength3(matrix);
         }
@@ -38,13 +37,8 @@ public class Matrix implements IMatrix {
 
     }
 
-    private double getDeterminantFormLength2() {
+    private double getDeterminantFormLength2(double[][] matrix) {
         return matrix[0][0]*matrix[1][1] - matrix[0][1]*matrix[1][0];
     }
-
-    public Matrix(double[][] matrix) {
-         this.matrix = matrix;
-    }
-
 
 }

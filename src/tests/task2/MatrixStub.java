@@ -6,7 +6,7 @@ public class MatrixStub implements IMatrix {
     private boolean isUseDeterminant = false;
 
     @Override
-    public double determinant() {
+    public double determinant(double[][] matrix) {
         isUseDeterminant = true;
         return 0;
     }
