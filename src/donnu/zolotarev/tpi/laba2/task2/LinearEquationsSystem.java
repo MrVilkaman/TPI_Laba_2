@@ -11,16 +11,47 @@ public class LinearEquationsSystem {
     }
 
     public  double[] solve(){
-        double det = iMatrix.determinant(coeffs);
+        if (coeffs.length == 0){
+            throw new IllegalArgumentException();
+        }
+
+        double[] res = new double[coeffs.length];
+
+        double det = iMatrix.determinant(getMatrix(0));
         if (det == 0){
             throw new RuntimeException();
         }
 
-
-        double[] res = new double[coeffs[0].length];
-
+        for (int i = 1; i <= coeffs.length; i++) {
+            double detX = iMatrix.determinant(getMatrix(i));
+            if (detX == 0){
+                throw new RuntimeException();
+            }
+            res[i-1] = detX/det;
+        }
 
         return res;
+    }
+
+    public double[][] getMatrix(int index) {
+        double[][] res = new double[coeffs.length][coeffs.length];
+
+        for (int i = 0; i < coeffs.length; i++) {
+            for (int j = 0; j < coeffs[0].length-1; j++) {
+                res[i][j] = coeffs[i][j];
+            }
+        }
+
+        if (index <0 || coeffs[0].length <index){
+            throw new IllegalArgumentException();
+        }
+
+        if (index != 0){
+            for (int j = 0; j < coeffs.length; j++) {
+                res[j][index-1] = coeffs[j][coeffs[0].length-1];
+            }
+        }
+       return res;
     }
 
     public void setCoefficients(double[][] coeffs){
